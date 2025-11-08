@@ -30,7 +30,7 @@ export default function PublishPage(): JSX.Element {
               "Server-Side Rendering",
               "Automated SEO",
               "Custom Domains",
-            ].map((t, i) => (
+            ].map((t) => (
               <TiltCard key={t} className="rounded-xl border border-white/10 p-5 bg-white/[0.03]">
                 <div className="text-white font-medium">{t}</div>
                 <div className="mt-1 text-sm text-white/70">Production-grade by default.</div>

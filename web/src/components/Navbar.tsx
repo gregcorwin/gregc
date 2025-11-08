@@ -1,9 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { motion } from "framer-motion";
 
-export function Navbar(): JSX.Element {
+export function Navbar() {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {

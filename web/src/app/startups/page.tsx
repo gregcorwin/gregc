@@ -35,7 +35,7 @@ export default function StartupsPage(): JSX.Element {
             { t: 'No devs required', d: 'Design, build, and publish in hours.' },
             { t: 'Stay in control', d: 'Update content anytime with built-in CMS.' },
             { t: 'Built to scale', d: 'Analytics and localization included.' },
-          ].map((f, i) => (
+          ].map((f) => (
             <TiltCard key={f.t} className="rounded-xl border border-white/10 p-5 bg-white/[0.03]">
               <div className="font-medium text-white">{f.t}</div>
               <div className="mt-1 text-sm text-white/70">{f.d}</div>

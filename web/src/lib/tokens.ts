@@ -1,7 +1,7 @@
 // Re-export JS tokens for TypeScript consumers in web
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { tokens } = require("../../../packages/tokens/index.js");
-export type Tokens = typeof tokens;
-export { tokens };
+import tokensPackage from "../../../packages/tokens/index.js";
 
+type Tokens = typeof import("../../../packages/tokens/index.js")["tokens"];
 
+export const tokens = (tokensPackage as { tokens: Tokens }).tokens;
+export type { Tokens };

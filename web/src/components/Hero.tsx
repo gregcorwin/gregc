@@ -26,7 +26,7 @@ export function Hero() {
             className="text-left"
           >
             <h1 className="text-4xl sm:text-4xl font-regular tracking-tight text-white">
-              Bob's moved in!
+              Bob&apos;s moved in!
             </h1>
             <p className="text-white/70 text-lg">Mt. Carmel will never the the same.</p>
           </motion.div>
@@ -72,7 +72,7 @@ export function Hero() {
                 <div className="space-y-2">
                   <p className="text-lg font-medium">Watch the move-in</p>
                   <p className="text-sm text-white/75">
-                    Tap for a tour and  Bob&apos;s first moments in Mt. Carmel.
+                    Tap for a tour and Bob&apos;s first moments in Mt. Carmel.
                   </p>
                 </div>
               </div>
