@@ -1,4 +1,4 @@
-export default function EmailLanding(): JSX.Element {
+export default function EmailLanding() {
   return (
     <div className="pt-24 mx-auto max-w-2xl px-4">
       <h1 className="text-3xl font-semibold text-white">Email at gregc.io</h1>

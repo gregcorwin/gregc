@@ -6,7 +6,7 @@ type MarqueeProps = {
   speedMs?: number;
 };
 
-export function Marquee({ items, speedMs = 18000 }: MarqueeProps): JSX.Element {
+export function Marquee({ items, speedMs = 18000 }: MarqueeProps) {
   const data = useMemo(
     () =>
       items ?? [

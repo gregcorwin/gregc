@@ -8,7 +8,7 @@ import { TiltCard } from "@/components/TiltCard";
 import { ShowcaseMedia } from "@/components/ShowcaseMedia";
 import { Testimonials } from "@/components/Testimonials";
 
-export default function StartupsPage(): JSX.Element {
+export default function StartupsPage() {
   return (
     <div>
       <ParallaxBackdrop />

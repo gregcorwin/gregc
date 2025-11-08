@@ -6,7 +6,7 @@ type ShowcaseMediaProps = {
   label?: string;
 };
 
-export function ShowcaseMedia({ aspect = '16/9', label = 'Media Placeholder' }: ShowcaseMediaProps): JSX.Element {
+export function ShowcaseMedia({ aspect = "16/9", label = "Media Placeholder" }: ShowcaseMediaProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}

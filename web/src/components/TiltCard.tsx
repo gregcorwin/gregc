@@ -7,7 +7,7 @@ type TiltCardProps = {
   className?: string;
 };
 
-export function TiltCard({ children, className = "" }: TiltCardProps): JSX.Element {
+export function TiltCard({ children, className = "" }: TiltCardProps) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rx = useTransform(y, [-50, 50], [10, -10]);

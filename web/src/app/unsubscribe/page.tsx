@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function UnsubscribePage(): JSX.Element {
+export default function UnsubscribePage() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<string | null>(null);
 

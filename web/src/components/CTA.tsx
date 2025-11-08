@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-export function CTA(): JSX.Element {
+export function CTA() {
   return (
     <section id="get-started" className="py-16">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">

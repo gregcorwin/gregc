@@ -3,7 +3,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 
-export default function AcademyPage(): JSX.Element {
+export default function AcademyPage() {
   return (
     <div>
       <Navbar />

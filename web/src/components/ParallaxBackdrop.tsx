@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-export function ParallaxBackdrop(): JSX.Element {
+export function ParallaxBackdrop() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, -120]);
   const y2 = useTransform(scrollY, [0, 1000], [0, -200]);

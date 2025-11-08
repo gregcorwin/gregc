@@ -28,7 +28,7 @@ const features = [
   },
 ];
 
-export function Features(): JSX.Element {
+export function Features() {
   return (
     <section id="features" className="py-20 sm:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function SendTestPage(): JSX.Element {
+export default function SendTestPage() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<string | null>(null);
 

@@ -20,7 +20,7 @@ export function Reveal({
   className,
   once = true,
   staggerChildrenMs = 60,
-}: RevealProps): JSX.Element {
+}: RevealProps) {
   const variants: Variants = {
     hidden: { opacity: 0, y },
     show: {

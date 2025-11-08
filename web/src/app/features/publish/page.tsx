@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ShowcaseMedia } from "@/components/ShowcaseMedia";
 import { TiltCard } from "@/components/TiltCard";
 
-export default function PublishPage(): JSX.Element {
+export default function PublishPage() {
   return (
     <div>
       <Navbar />
