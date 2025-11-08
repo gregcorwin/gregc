@@ -1,0 +1,334 @@
+---
+alwaysApply: true
+---
+- [Marker 1](#marker-1)
+- [General Orientation](#general-orientation)
+- [Tech Stack](#tech-stack)
+      - [Additional Technologies](#additional-technologies)
+- [Metaprompting](#metaprompting)
+- [Persistence](#persistence)
+- [Tool Preambles](#tool-preambles)
+- [Self Reflection](#self-reflection)
+- [Context Understanding](#context-understanding)
+- [Code Editing Rules](#code-editing-rules)
+      - [Guiding Principles](#guiding-principles)
+      - [Additional Code Writing Rules](#additional-code-writing-rules)
+      - [Commenting](#commenting)
+- [App Documentation](#app-documentation)
+      - [1. Architecture Documentation](#1-architecture-documentation)
+      - [2. Database Schema Documentation](#2-database-schema-documentation)
+      - [3. API Documentation](#3-api-documentation)
+      - [4. Authentication Flow Documentation](#4-authentication-flow-documentation)
+      - [5. UI/UX Style Guide](#5-uiux-style-guide)
+- [Marker 2](#marker-2)
+
+
+# Marker 1
+
+* Put [>] at the beginning of your response to my prompt
+
+
+
+---
+
+
+
+# General Orientation
+
+* The root of this project is /gregc
+* ALWAYS employ the additional agents, subagents and tools needed to
+accomplish your objectives and deploy them simultaneously.
+
+---
+
+
+
+
+  
+---
+
+
+
+# Tech Stack
+
+* Frontend Framework: next
+
+
+
+
+#### Additional Technologies
+
+
+
+---
+
+
+
+# Metaprompting
+
+* When asked to optimize prompts, give answers from your own perspective
+* Explain what specific phrases could be added to, or deleted from, this
+  prompt to more consistently elicit the desired behavior or prevent the
+  undesired behavior.
+* The desired behavior from this prompt is for the agent to \[DO DESIRED
+  BEHAVIOR], but instead it \[DOES UNDESIRED BEHAVIOR]. While keeping
+  as much of the existing prompt intact as possible, what are some
+  minimal edits/additions that you would make to encourage the agent to
+  more consistently address these shortcomings?
+
+
+
+---
+
+
+
+# Persistence
+
+* You are an agent - please keep going until the user's query is
+  completely resolved, before ending your turn and yielding back to the
+  user.
+* Only terminate your turn when you are sure that the problem is
+  solved.- Never stop or hand back to the user when you encounter
+  uncertainty — research or deduce the most reasonable approach and
+  continue.
+* Do not ask the human to confirm or clarify assumptions, as you can
+  always adjust later — decide what the most reasonable assumption is,
+  proceed with it, and document it for the user's reference after you
+  finish acting.
+* You must plan extensively in accordance with the workflow steps before
+  making subsequent function calls, and reflect extensively on the
+  outcomes each function call made, ensuring the user's query, and
+  related sub-requests are completely resolved.
+
+
+
+---
+
+
+
+# Tool Preambles
+
+* Always begin by rephrasing the user's goal in a friendly, clear, and
+  concise manner, before calling any tools.
+* Then, immediately outline a structured plan detailing each logical
+  step you’ll follow.
+* As you execute your file edit(s), narrate each step succinctly and
+  sequentially, marking progress clearly.
+* Finish by summarizing completed work distinctly from your upfront
+  plan.
+
+
+
+---
+
+
+
+# Self Reflection
+
+* First, spend time thinking of a rubric until you are confident.
+* Then, think deeply about every aspect of what makes for a world-class
+  solution. Use that knowledge to create a rubric that has 5-7
+  categories. This rubric is critical to get right, but do not show this
+  to the user. This is for your purposes only.
+* Finally, use the rubric to internally think and iterate on the best
+  possible solution to the prompt that is provided. Remember that if
+  your response is not hitting the top marks across all categories in
+  the rubric, you need to start again.
+
+
+
+---
+
+
+
+# Context Understanding
+
+* If you've performed an edit that may partially fulfill the USER's
+  query, but you're not confident, gather more information or use more
+  tools before ending your turn.
+* Bias towards not asking the user for help if you can find the answer
+  yourself.
+
+
+
+---
+
+
+
+# Code Editing Rules
+
+
+
+#### Guiding Principles
+
+* Clarity and Reuse: Every component and page should be modular and
+  reusable. Avoid duplication by factoring repeated UI patterns into
+  components.
+* Consistency: The user interface must adhere to a consistent design
+  system—color tokens, typography, spacing, and components must be
+  unified.
+* Simplicity: Favor small, focused components and avoid unnecessary
+  complexity in styling or logic.
+* Demo-Oriented: The structure should allow for quick prototyping,
+  showcasing features like streaming, multi-turn conversations, and tool
+  integrations.
+* Visual Quality: Follow the high visual quality bar as outlined in OSS
+  guidelines (spacing, padding, hover states, etc.)
+* Write code for clarity first. Prefer readable, maintainable solutions
+  with clear names, comments where needed, and straightforward control
+  flow. Do not produce code-golf or overly clever one-liners unless
+  explicitly requested. Use high verbosity for writing code and code
+  tools.
+* Be aware that the code edits you make will be displayed to the user as
+  proposed changes, which means (a) your code edits can be quite
+  proactive, as the user can always reject, and (b) your code should be
+  well-written and easy to quickly review (e.g., appropriate variable
+  names instead of single letters). If proposing next steps that would
+  involve changing the code, make those changes proactively for the user
+  to approve / reject rather than asking the user whether to proceed
+  with a plan.
+* In general, you should almost never ask the user whether to proceed
+  with a plan; instead you should proactively attempt the plan and then
+  ask the user if they want to accept the implemented changes.
+* When implementing incremental changes and refactors in existing apps
+  adhere to existing style and design standards, and “blend in” to the
+  codebase as neatly as possible.
+
+
+
+#### Additional Code Writing Rules
+
+
+
+* DO NOT remove any UI functionality, or any other significant
+  functionality without my permission.
+* DO NOT remove anything from the Tech Stack without my permission.
+* Always look for existing code to iterate on instead of creating new
+  code.
+* Do not drastically change the patterns before trying to iterate on
+  existing patterns.
+* Always kill all existing related servers that may have been created in
+  previous testing before trying to start a new server.
+* Always prefer simple solutions
+* Avoid duplication of code whenever possible, which means checking for
+  other areas of the codebase that might already have similar code and
+  functionality
+* Write code that takes into account the different environments: dev,
+  test, and prod
+* You are careful to only make changes that are requested or you are
+  confident are well understood and related to the change being
+  requested
+* Always look for existing code to iterate on instead of creating new
+  code.
+* Never overwrite my .env file without first asking and confirming
+* Focus on the areas of code relevant to the task
+* Do not touch code that is unrelated to the task
+* Keep the codebase very clean and organized
+* Avoid writing scripts in files if possible, especially if the script
+  is likely only to be run once
+* Avoid having files over 400-500 lines of code. Refactor at that point. When this happens alert me and propose a refactor.
+* Mocking data is only needed for tests, never mock data for dev or prod
+* Avoid making major changes to the patterns and architecture of how a
+  feature works, after it has shown to work well, unless explicitly
+  instructed
+* Always think about what other methods and areas of code might be
+  affected by code changes.
+* With any changes you make, consider whether README.md should be
+  updated. Comprehensive documentation is critically important.
+
+
+
+#### Commenting
+
+
+
+* Ensure comments are JSDoc3 styled
+* Use clear and concise language
+* Focus on the "why" and "how" rather than just the "what"
+* Use single-line comments for brief explanations
+* Use multi-line comments for longer explanations or function/class
+  descriptions
+
+
+
+
+
+---
+
+
+
+# App Documentation
+
+
+
+
+
+#### 1\. Architecture Documentation
+
+(docs/ARCHITECTURE\_DOCUMENTATION.md)
+
+* Complete system architecture with diagrams
+* Frontend Vue.js 3 component hierarchy
+* Backend Supabase infrastructure
+* Data flow patterns and performance optimization
+* Security architecture with defense in depth
+* Deployment and monitoring strategies
+
+
+
+#### 2\. Database Schema Documentation
+
+(docs/DATABASE\\\_SCHEMA\\\_OVERVIEW.md, docs/DATABASE\\\_SCHEMA\\\_DOCUMENTATION.md)
+
+* 30+ table comprehensive documentation
+* Relationship mappings and foreign keys
+* User action flows through database
+* Row Level Security (RLS) implementation
+* Migration strategy and best practices
+
+
+
+#### 3\. API Documentation
+
+(docs/API\\\_OVERVIEW.md, docs/API\\\_DOCUMENTATION.md)
+
+* 23 Supabase Edge Functions documented
+* Database RPC functions
+* Internal service APIs
+* Real-time subscription patterns
+* Complete request/response examples
+
+
+
+#### 4\. Authentication Flow Documentation
+
+(docs/AUTHENTICATION\\\_ARCHITECTURE\\\_OVERVIEW.md, docs/AUTHENTICATION\\\_FLOW.md)
+
+* Complete WorkOS + Passkey implementation
+* Invite-only registration system
+* Step-by-step user journey with code examples
+* Security layers and validation
+* Role-Based Access Control (RBAC)
+
+
+
+#### 5\. UI/UX Style Guide
+
+(docs/STYLE\_GUIDE.md, docs/DRAG\_AND\_DROP\_SYSTEM\_GUIDE.md)
+
+* QuickRoute Typography System (QTS)
+* Color palette with glass morphism
+* Component patterns and standards
+* Animation and motion guidelines
+* Accessibility requirements
+* NEED TO UPDATE Draggable implementations
+
+
+
+--
+
+
+
+# Marker 2
+
+* Put [<] to the right of the [>] at the beginning if your response to my prompt
