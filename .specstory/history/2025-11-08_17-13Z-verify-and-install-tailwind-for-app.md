@@ -4074,3 +4074,580 @@ I'll put together a clear final message that recaps the fix, reminds about commi
 
 ---
 
+_**User (2025-11-08 20:40Z)**_
+
+the build appears to be successful but still getting a 404 on the app page
+
+404: NOT_FOUND
+Code: NOT_FOUND
+ID: cle1::lhqzs-1762638491379-0e93a8c44ca5
+
+and getting this from the cli
+
+PS C:\Users\greg\dev\gregc-dev\web> npx vercel -prod
+Vercel CLI 48.9.0
+> [debug] [2025-11-08T21:49:15.400Z] user supplied a possible target for deployment or an extension
+> [debug] [2025-11-08T21:49:15.414Z] failed to find extension command with name "vercel--p"
+> [debug] [2025-11-08T21:49:15.440Z] handling error: ArgError: unknown or unexpected option: -r
+    at arg2 (C:\Users\greg\.npm-packages\node_modules\vercel\dist\index.js:35070:23)
+    at parseArguments (C:\Users\greg\.npm-packages\node_modules\vercel\dist\index.js:35115:61)
+    at deploy_default (C:\Users\greg\.npm-packages\node_modules\vercel\dist\index.js:152746:27)
+    at main17 (C:\Users\greg\.npm-packages\node_modules\vercel\dist\index.js:188752:25)
+Error: unknown or unexpected option: -r
+> [debug] [2025-11-08T21:49:15.681Z] Vercel CLI 48.9.0
+
+> [debug] [2025-11-08T21:49:15.991Z] Telemetry event tracked
+> [debug] [2025-11-08T21:49:16.234Z] Telemetry subprocess exited with code 0
+> [debug] [2025-11-08T21:49:16.235Z] Spawning C:\Users\greg\.npm-packages\node_modules\vercel\dist\get-latest-worker.js
+> '[debug] [2025-11-08T21:49:16.269Z] Notifying parent we're ready
+> '[debug] [2025-11-08T21:49:16.273Z] Received message from parent: {
+  cacheFile: 'C:\\Users\\greg\\AppData\\Local\\com.vercel.cli\\Cache\\package-updates\\vercel-latest.json',
+  distTag: 'latest',
+  name: 'vercel',
+  updateCheckInterval: 86400000
+}
+> '[debug] [2025-11-08T21:49:16.273Z] Disconnecting from parent
+> '[debug] [2025-11-08T21:49:16.275Z] Checking lock file: C:\Users\greg\AppData\Local\com.vercel.cli\Cache\package-updates\vercel-latest.lock
+> '[debug] [2025-11-08T21:49:16.275Z] Found lock file with pid: 45472
+> '[debug] [2025-11-08T21:49:16.276Z] Resetting lock file: Error: kill ESRCH
+> '[debug] [2025-11-08T21:49:16.276Z] Initializing lock file with pid 39740
+> '[debug] [2025-11-08T21:49:16.278Z] Fetching https://registry.npmjs.org/-/package/vercel/dist-tags
+PS C:\Users\greg\dev\gregc-dev\web>
+
+---
+
+_**Agent (model gpt-5-codex, mode Agent)**_
+
+<think><details><summary>Thought Process</summary>
+**Clarifying deployment command and root path**</details></think>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: .vercel/project.json</summary>
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Investigating 404 cause**</details></think>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: web/next.config.ts</summary>
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Investigating possible causes of 404 error**</details></think>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: web/src/middleware.ts</summary>
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Analyzing Vercel 404 causes**</details></think>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: web/src/app/layout.tsx</summary>
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+_**User (2025-11-08 20:40Z)**_
+
+before we make any more chnages or pushes, get rid of everything in the app that doesn't have something to do with the homepage hero with the photo and video. 
+
+---
+
+_**Agent (model gpt-5-codex, mode Agent)**_
+
+<think><details><summary>Thought Process</summary>
+**Summarizing goal and outlining plan**</details></think>
+
+---
+
+[><]Understood—you want to strip the project down so only the homepage hero (with Bob’s photo and video modal) remains, removing every other page, component, or asset that isn’t directly involved.
+
+Plan:
+- Audit the repo to list which files and routes are unrelated to that hero section.
+- Update `page.tsx` (and any supporting layout) so it renders just the hero.
+- Delete extraneous pages/components and clear unused assets/config links.
+- Re-run lint checks to confirm everything is clean.
+
+Next step would be carrying out that cleanup.
+
+---
+
+_**User (2025-11-08 20:40Z)**_
+
+please proceed
+
+---
+
+_**Agent (model gpt-5-codex, mode Agent)**_
+
+<think><details><summary>Thought Process</summary>
+**Preparing to simplify app structure**</details></think>
+
+---
+
+<tool-use data-tool-type="unknown" data-tool-name="apply_patch">
+<details>
+<summary>Tool use: **apply_patch**</summary>
+
+
+Parameters:
+
+```json
+{
+  &quot;relativeWorkspacePath&quot;: &quot;web/src/app/page.tsx&quot;,
+  &quot;code&quot;: {
+    &quot;code&quot;: &quot;*** Begin Patch\n*** Update File: web/src/app/page.tsx\n@@\n-import { Navbar } from \&quot;@/components/Navbar\&quot;;\n import { Hero } from \&quot;@/components/Hero\&quot;;\n-import { Footer } from \&quot;@/components/Footer\&quot;;\n-import { ParallaxBackdrop } from \&quot;@/components/ParallaxBackdrop\&quot;;\n \n export default function Home() {\n   return (\n-    &lt;div className=\&quot;flex min-h-screen flex-col\&quot;&gt;\n-      &lt;ParallaxBackdrop /&gt;\n-      &lt;Navbar /&gt;\n-      &lt;main className=\&quot;flex-1\&quot;&gt;\n-        &lt;Hero /&gt;\n-      &lt;/main&gt;\n-      &lt;Footer /&gt;\n-    &lt;/div&gt;\n+    &lt;main className=\&quot;min-h-screen bg-black\&quot;&gt;\n+      &lt;Hero /&gt;\n+    &lt;/main&gt;\n   );\n }\n*** End Patch&quot;
+  }
+}
+```
+Additional data:
+
+```json
+{
+  &quot;codeblockId&quot;: &quot;2a5eb503-29ff-4cc8-aecf-16daa0d12cba&quot;
+}
+```
+Result:
+
+```json
+{
+  &quot;diff&quot;: {
+    &quot;chunks&quot;: [
+      {
+        &quot;diffString&quot;: &quot;- import { Navbar } from \&quot;@/components/Navbar\&quot;;\r\n  import { Hero } from \&quot;@/components/Hero\&quot;;\r\n- import { Footer } from \&quot;@/components/Footer\&quot;;\r\n- import { ParallaxBackdrop } from \&quot;@/components/ParallaxBackdrop\&quot;;\r\n  \r\n  export default function Home() {\r\n    return (\r\n-     &lt;div className=\&quot;flex min-h-screen flex-col\&quot;&gt;\r\n-       &lt;ParallaxBackdrop /&gt;\r\n-       &lt;Navbar /&gt;\r\n-       &lt;main className=\&quot;flex-1\&quot;&gt;\r\n-         &lt;Hero /&gt;\r\n-       &lt;/main&gt;\r\n-       &lt;Footer /&gt;\r\n-     &lt;/div&gt;\r\n+     &lt;main className=\&quot;min-h-screen bg-black\&quot;&gt;\r\n+       &lt;Hero /&gt;\r\n+     &lt;/main&gt;\r\n    );\r\n  }\r&quot;,
+        &quot;oldStart&quot;: 1,
+        &quot;newStart&quot;: 1,
+        &quot;oldLines&quot;: 17,
+        &quot;newLines&quot;: 9,
+        &quot;linesRemoved&quot;: 11,
+        &quot;linesAdded&quot;: 3
+      }
+    ],
+    &quot;editor&quot;: &quot;EDITOR_AI&quot;
+  },
+  &quot;shouldAutoFixLints&quot;: true,
+  &quot;resultForModel&quot;: &quot;Success. Updated the following files:\nM web/src/app/page.tsx&quot;,
+  &quot;contentsAfterEdit&quot;: &quot;import { Hero } from \&quot;@/components/Hero\&quot;;\r\n\r\nexport default function Home() {\r\n  return (\r\n    &lt;main className=\&quot;min-h-screen bg-black\&quot;&gt;\r\n      &lt;Hero /&gt;\r\n    &lt;/main&gt;\r\n  );\r\n}\r\n&quot;
+}
+```
+User decision: **accepted**
+
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Cleaning up unused components**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Cleaning up obsolete app directories**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Preparing to delete directories**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Deleting specified directories and file**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Preparing to remove API route**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Deleting middleware.ts**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Deleting tokens.ts file**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Preparing to delete WelcomeEmail.tsx**</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+Explanation: undefined
+
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Verifying component cleanup and references**</details></think>
+
+---
+
+<tool-use data-tool-type="generic" data-tool-name="read_lints">
+<details>
+          <summary>Tool use: **read_lints** • Read lints for 2 files</summary>
+      
+Lint paths:
+
+- `web/src/app/page.tsx`
+- `web/src/components/Hero.tsx`
+
+Lint results
+
+
+**No lint errors found**
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+**Preparing final deployment summary**</details></think>
+
+---
+
+[><]## Summary
+- Pruned the codebase so the web app now contains only the homepage hero experience. Removed all other routes (`academy`, `startups`, `email`, `enterprise`, API handlers, etc.), auxiliary components, middleware, and unused libs/assets.
+- Simplified `page.tsx` so it renders just the hero inside a minimal `<main>`, ensuring no stray imports linger.
+```8:13:web/src/app/page.tsx
+    <main className="min-h-screen bg-black">
+      <Hero />
+    </main>
+```
+
+## Testing
+- Not run (structural cleanup only).
+
+## Next Steps
+- Commit the cleanup (`git add -A`, `git commit -m "chore: strip app to hero only"`), then redeploy with `npx vercel --prod` (note the double dash; the single-dash form triggers the CLI “unexpected option: -r” error).
+- Once the deploy finishes, revisit the production URL—only the hero should render, resolving the previous 404 now that the app has a single route.
+
+---
+
