@@ -1,6 +1,4 @@
-"use client";
 import { useCallback, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function Hero() {
@@ -38,13 +36,11 @@ export function Hero() {
             className="grid grid-cols-1 gap-6 lg:grid-cols-[0.62fr_0.38fr]"
           >
             <figure className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5">
-              <Image
+              <img
                 src="/bob-1.jpg"
                 alt="Bob settling into his new home"
-                priority
-                fill
-                sizes="(min-width: 1024px) 55vw, 90vw"
                 className="h-full w-full object-cover"
+                loading="lazy"
               />
             </figure>
             <motion.button
