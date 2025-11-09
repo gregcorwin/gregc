@@ -5611,11 +5611,38 @@ Lint results
 
 ---
 
+<think><details><summary>Thought Process</summary>
+**Summarizing final deployment instructions**
 
+I'll craft a friendly, concise summary explaining the migration to Vite, key file changes like App.tsx and Hero imports, and deployment tips including npm install, Vercel settings, and relevant CLI commands to help the user smoothly redeploy.</details></think>
 
 ---
 
+[><]## Summary
+- Replaced the Next.js scaffold with a minimal Vite + React setup: new `package.json` scripts/deps, `tsconfig.json`, and `vite.config.ts`, plus a plain `index.html`.
+- Added the single-page shell (`src/main.tsx`, `src/App.tsx`, `src/index.css`) and refit `Hero` to use a standard `<img>` so it no longer depends on Next.
+```1:9:web/src/App.tsx
+import { Hero } from "./components/Hero";
 
+export function App() {
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <Hero />
+    </div>
+  );
+}
+```
+- Deleted all unused Next-era routes/components and support files to keep only the hero content in the bundle.
+
+## Next Steps
+- Run `npm install` inside `web` to refresh `node_modules` and regenerate `package-lock.json` for the new stack.
+- In Vercel:
+  - Project Settings → General: keep **Root Directory** = `web`.
+  - Build & Development Settings: set **Framework Preset** = “Vite” (or Other with overrides), **Build Command** = `npm run build`, **Output Directory** = `dist`, **Install Command** = `npm install`. Clear any old Production Overrides that still point to `/web`.
+  - Trigger a redeploy (or from the CLI use `npx vercel --prod`—note the double dash).
+- After deployment, visit the production URL; it should now serve the Bob hero page instead of a 404.
+
+No automated tests were run; once reinstall and deploy finish, double-check the modal/video interaction manually.
 
 ---
 
