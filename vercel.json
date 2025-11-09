@@ -1,7 +1,0 @@
-{
-  "installCommand": "npm install --prefix bob-moved-in",
-  "buildCommand": "npm run build --prefix bob-moved-in",
-  "outputDirectory": "bob-moved-in/dist",
-  "framework": "vite"
-}
-

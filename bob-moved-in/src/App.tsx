@@ -116,7 +116,7 @@ function App() {
               <button
                 type="button"
                 onClick={() => setActiveModal('image')}
-                className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/5 shadow-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-300/80"
+                className="group relative w-full overflow-hidden rounded-3xl border border-white/5 shadow-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-300/80 md:aspect-[4/3]"
                 aria-label="View Bob's welcome photo in full size"
               >
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/15 via-transparent to-cobalt-400/25 opacity-20 transition-opacity duration-500 group-hover:opacity-40" />
@@ -127,15 +127,17 @@ function App() {
                   loading="lazy"
                 />
               </button>
-              <p className="-mt-5 text-sm regularic text-slate-300">
-                Bob gives a thumbs up to the female-to-male ratio<br /><i>—Judy isn&apos;t looking too worried</i>.
+              <p className="-mt-5 text-sm text-slate-300">
+                Bob gives a thumbs up to the female-to-male ratio
+                <br />
+                <i>—Judy isn&apos;t looking too worried</i>.
               </p>
             </div>
 
             <div className="flex w-full max-w-lg flex-col items-center gap-6 text-center">
-              <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-cobalt-400/45 bg-gradient-to-br from-cobalt-500/30 via-midnight-800/90 to-black/70 p-[1px] transition-transform duration-500 hover:-translate-y-1 hover:shadow-frost">
-                <div className="relative flex h-full flex-col items-center justify-center gap-6 rounded-[calc(theme(borderRadius.3xl)-1px)] bg-midnight-800/85 px-8 py-10 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                  <span className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-cobalt-500/25 shadow-inner shadow-white/40 backdrop-blur-md transition-colors duration-300 group-hover:bg-cobalt-400/30">
+              <div className="group relative w-full overflow-hidden rounded-3xl border border-cobalt-400/45 bg-gradient-to-br from-cobalt-500/30 via-midnight-800/90 to-black/70 p-[1px] transition-transform duration-500 hover:-translate-y-1 hover:shadow-frost md:aspect-[4/3]">
+                <div className="relative flex h-full flex-col items-center justify-center gap-5 rounded-[calc(theme(borderRadius.3xl)-1px)] bg-midnight-800/85 px-6 py-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:px-8 sm:py-10">
+                  <span className="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full bg-cobalt-500/25 shadow-inner shadow-white/40 backdrop-blur-md transition-colors duration-300 group-hover:bg-cobalt-400/30 sm:h-16 sm:w-16">
                     <PlayIcon />
                   </span>
                   <div className="space-y-2">
@@ -147,7 +149,7 @@ function App() {
                   <button
                     type="button"
                     onClick={() => setActiveModal('video')}
-                    className="mx-auto flex items-center gap-2 rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-slate-100 transition-colors duration-300 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-300/80"
+                    className="mx-auto flex items-center gap-2 rounded-full bg-white/10 px-5 py-3 text-sm font-semibold text-slate-100 transition-colors duration-300 hover:bg-white/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-cobalt-300/80 sm:px-6"
                   >
                     Play video
                   </button>
