@@ -128,9 +128,7 @@ function App() {
                 />
               </button>
               <p className="-mt-5 text-sm text-slate-300">
-                Bob gives a thumbs up to the female-to-male ratio
-                <br />
-                <i>—Judy isn&apos;t looking too worried</i>.
+          
               </p>
             </div>
 
